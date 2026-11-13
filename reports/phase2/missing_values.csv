@@ -1,0 +1,17 @@
+,missing_count,missing_percentage
+train_number,0,0.0
+train_name,0,0.0
+category,0,0.0
+start_date,0,0.0
+status,0,0.0
+seq,0,0.0
+station_code,0,0.0
+scheduled_arrival,6362,6.361999999999999
+scheduled_departure,6361,6.361
+actual_arrival,7923,7.922999999999999
+actual_departure,93758,93.758
+arrival_reported,100000,100.0
+departure_reported,100000,100.0
+arrival_delay_min,7923,7.922999999999999
+departure_delay_min,93758,93.758
+run_quality,100000,100.0

@@ -1,0 +1,46 @@
+/Users/sanchisharma/Dynamic-Train-ETA/src/prepare_ml_dataset.py:62: Pandas4Warning: Series.dt.dayofweek is deprecated and will be removed in a future version. Use Series.dt.day_of_week instead.
+  ).dt.dayofweek
+STARTING DATA CLEANING AND FEATURE ENGINEERING...
+
+Original records: 110975
+
+========== FEATURE ENGINEERING REPORT ==========
+Original records: 110975
+Final ML records: 95801
+Unique trains: 3058
+Unique stations: 7260
+Unique journey dates: 118
+
+Feature columns:
+['train_number', 'category', 'station_code', 'seq', 'hour', 'day_of_week', 'month', 'is_weekend', 'season', 'scheduled_travel_minutes', 'previous_arrival_delay', 'arrival_delay_min', 'journey_date']
+
+Target statistics:
+count    95801.000000
+mean        30.549535
+std         53.487860
+min        -90.000000
+25%          4.000000
+50%         14.000000
+75%         35.000000
+max        720.000000
+Name: arrival_delay_min, dtype: float64
+
+Missing values:
+train_number                0
+category                    0
+station_code                0
+seq                         0
+hour                        0
+day_of_week                 0
+month                       0
+is_weekend                  0
+season                      0
+scheduled_travel_minutes    0
+previous_arrival_delay      0
+arrival_delay_min           0
+journey_date                0
+dtype: int64
+
+Saved: data/processed/train_eta_features.parquet
+
+FEATURE ENGINEERING COMPLETED!

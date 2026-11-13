@@ -1,0 +1,1 @@
+train_number,train_name,category,start_date,status,seq,station_code,scheduled_arrival,scheduled_departure,actual_arrival,actual_departure,arrival_reported,departure_reported,arrival_delay_min,departure_delay_min,run_quality

@@ -1,0 +1,33 @@
+# Environment variables and secrets
+.env
+.env.*
+
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+
+# Temporary files
+*.log
+
+# Large live data files
+data/live/
+# Railway datasets
+data/raw/
+data/processed/
+data/live/
+
+# Trained model files
+models/
+
+# Python test and cache files
+.pytest_cache/
