@@ -1,21 +1,41 @@
+
 import os
 import requests
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv("RAILCORE_KEY")
 BASE_URL = "https://ir.railcore.tech/v1"
 
 
+def get_api_key():
+    # First, check the local .env file
+    api_key = os.getenv("RAILCORE_KEY")
+
+    if api_key:
+        return api_key
+
+    # If not found, check Streamlit Cloud Secrets
+    try:
+        return st.secrets.get("RAILCORE_KEY")
+    except Exception:
+        return None
+
+
 def get_live_train_status(train_number):
-    if not API_KEY:
-        raise ValueError("RAILCORE_KEY is missing from .env")
+    api_key = get_api_key()
+
+    if not api_key:
+        raise ValueError(
+            "RAILCORE_KEY is missing. Add it to your local .env "
+            "or Streamlit Cloud Secrets."
+        )
 
     url = f"{BASE_URL}/trains/{train_number}/live"
 
     headers = {
-        "X-RailCore-Key": API_KEY
+        "X-RailCore-Key": api_key
     }
 
     response = requests.get(
@@ -30,7 +50,8 @@ def get_live_train_status(train_number):
     if not result.get("success"):
         raise RuntimeError(result.get("error", "API request failed"))
 
-    return result["data"]
+    return result
+
 
 
 if __name__ == "__main__":
