@@ -20,6 +20,7 @@ st.set_page_config(
 
 # ---------- DESIGN SYSTEM ----------
 st.markdown("""
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 :root { --bg:#07111f; --panel:#0d1d30; --panel2:#10263d; --line:rgba(111,178,220,.17); --muted:#91a9bf; --text:#eaf4ff; --cyan:#35d8ef; --blue:#398bff; }
@@ -135,7 +136,25 @@ header[data-testid="stHeader"] {
 @media (max-width: 520px) {
     .kpi-grid { grid-template-columns: 1fr; }
 }
+/* Hide Streamlit platform controls */
+header[data-testid="stHeader"] {
+    visibility: hidden !important;
+}
+
+[data-testid="stToolbar"] {
+    visibility: hidden !important;
+}
+
+[data-testid="stDecoration"] {
+    display: none !important;
+}
+
+#MainMenu,
+footer {
+    visibility: hidden !important;
+}
 </style>
+
 """, unsafe_allow_html=True)
 
 
