@@ -46,11 +46,23 @@ def get_live_train_status(train_number):
 
     response.raise_for_status()
     result = response.json()
+    print("RAILCORE TOP-LEVEL KEYS:", list(result.keys()))
 
-    if not result.get("success"):
+    payload = result.get("data", {})
+
+    print("RAILCORE DATA TYPE:", type(payload).__name__)
+
+    if isinstance(payload, dict):
+        print("RAILCORE DATA KEYS:", list(payload.keys()))
+
+        stations = payload.get("stations")
+        print("STATIONS TYPE:", type(stations).__name__)
+        print("STATIONS COUNT:", len(stations) if isinstance(stations, list) else "Not a list")
+
+    if not result.get("success", True):
         raise RuntimeError(result.get("error", "API request failed"))
 
-    return result
+    return result["data"]
 
 
 
